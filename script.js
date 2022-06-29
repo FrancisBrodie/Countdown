@@ -24,7 +24,7 @@ const interval = setInterval(() => {
 
     if (diff < 0) {
         clearInterval(interval);
-        countdown?.innerHTML = "<h1>Here We Go!!</h1>"
+        countdown.innerHTML = "<h1>Here We Go!!</h1>"
     }
 
 
