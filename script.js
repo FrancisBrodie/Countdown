@@ -1,15 +1,15 @@
 const countdown = document.querySelector(".countdown");
 
 const interval = setInterval(() => {
-    const deadline = new Date(2022, 7, 22, 7, 0, 0);
+    const deadline = new Date(2022, 7, 22, 12, 0, 0);
 
     const current = new Date();
 
     const diff = deadline - current;
 
-    const days = Math.floor(diff / (100 * 60 * 60 * 24));
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-    const hours = Math.floor((diff / (100 * 60 * 60)) % 24);
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
 
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
 
@@ -27,6 +27,16 @@ const interval = setInterval(() => {
         countdown.innerHTML = "<h1>Here We Go!!</h1>"
     }
 
+    document.querySelector('.reset')?.addEventListener('click', () => {
+        clearInterval(interval);
+
+
+        const divs = document.querySelectorAll('.countdown div');
+
+        divs.forEach(div => {
+            div.innerHTML = "00";
+        })
+    })
 
 }, 1000);
 
